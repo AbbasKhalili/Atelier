@@ -1,0 +1,95 @@
+﻿@model Atelier.CustomerManagement.Customer.CustomerModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    <div class="col-lg-6">
+        <section class="panel">
+            <header class="panel-heading">
+                مشتری
+            </header>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="FName" class="col-lg-6 control-label">نام</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(cust => cust.FName, new { @placeholder = "نام", @class = "form-control", @id = "FName" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="LName" class="col-lg-6 control-label">نام خانوادگی</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(cust => cust.LName, new { @placeholder = "نام خانوادگی", @class = "form-control", @id = "LName" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Gender" class="col-lg-6 control-label">جنسیت</label>
+                        <div class="col-lg-10">
+                            @{
+                               var list = new SelectList(new[]
+                               {
+                                  new {value="0", text="زن"},
+                                  new {value="1", text="مرد"},
+                               }, "value", "text", 0);
+                            }
+                            @Html.DropDownListFor(cust => cust.Gender, list, new { @class = "form-control m-bot15", @id = "Gender" })
+                        </div>                        
+                    </div>
+                    <div class="form-group">
+                        <label for="NationalCode" class="col-lg-6 control-label">کد ملی</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(cust => cust.NationalCode, new { @placeholder = "کد ملی", @class = "form-control", @id = "NationalCode" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Birthdate" class="col-lg-6 control-label">تاریخ تولد</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(cust => cust.Birthdate, new { @placeholder = "تاریخ تولد", @class = "form-control", @id = "Birthdate" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Tel" class="col-lg-6 control-label">شماره تماس</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(cust => cust.Tel, new { @placeholder = "شماره تماس", @class = "form-control", @id = "Tel" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Mobile" class="col-lg-6 control-label">تلفن همراه</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(cust => cust.Mobile, new { @placeholder = "شماره تماس همراه", @class = "form-control", @id = "Mobile" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Email" class="col-lg-6 control-label">آدرس ایمیل</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(cust => cust.Email, new { @placeholder = "آدرس پستی الکترونیکی", @class = "form-control", @id = "Email" ,@type="email"})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Address" class="col-lg-6 control-label">آدرس</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(cust => cust.Address, new { @placeholder = "آدرس", @class = "form-control", @id = "Address" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Descs" class="col-lg-6 control-label">توضیحات</label>
+                        <div class="col-lg-10">
+                            @Html.TextBoxFor(cust => cust.Descs, new { @placeholder = "توضیحات", @class = "form-control", @id = "Descs" })
+                        </div>
+                    </div>            
+                    <div class="form-group">
+                        <div class="col-lg-offset-6 col-lg-6">
+                            <button type="submit" class="btn btn-success">  ثبت  </button>
+                            <button type="reset" class="btn btn-default">  پاک کردن  </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+}
+
